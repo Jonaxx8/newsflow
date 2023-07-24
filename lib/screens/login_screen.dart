@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:newsflow/screens/home_screen.dart';
 import 'package:newsflow/widgets/custom_button.dart';
+import 'package:newsflow/services/firebase_auth_methods.dart';
+import 'package:provider/provider.dart';
 
 
 class LoginScreen extends StatefulWidget{
@@ -45,7 +48,20 @@ class _LoginScreenState extends State<LoginScreen>{
           Container(
             margin: const EdgeInsets.fromLTRB(30,10,30,0),
             child: CustomButton(
-              onPressed: (){},
+               onPressed: () async {
+                final user = await context.read<FirebaseAuthMethods>().signInWithGoogle(context);
+    
+                if (user != null) {
+                  // Navigate to the next screen after successful sign-in
+                  // ignore: use_build_context_synchronously
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => HomeScreen(), // Replace NextScreen with your desired screen.
+                    ),
+                  );
+                }
+              },
               imgPath: 'assets/images/google.png',             
               text: 'Continue with Google',
               color: Colors.white,
