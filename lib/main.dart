@@ -1,6 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:newsflow/screens/login_screen.dart';
+import 'package:newsflow/screens/signup_screen.dart';
 import 'package:newsflow/services/firebase_auth_methods.dart';
 import 'package:provider/provider.dart';
 
@@ -26,9 +27,12 @@ class MyApp extends StatelessWidget {
           create: (_) => FirebaseAuthMethods(),
         ),
       ],
-      child: const MaterialApp(
+      child: MaterialApp(
         title: 'NewsFlow',
-        home: LoginScreen(),
+        home: const LoginScreen(),
+        routes: {
+          SignUpScreen.routeName: (context) => const SignUpScreen(),
+        },
       ),
     );
   }

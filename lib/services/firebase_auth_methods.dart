@@ -34,6 +34,27 @@ class FirebaseAuthMethods {
     }
   }
 
+  // Sign up with email and password
+
+  Future<User?> signUpWithEmailAndPassword({
+      required String email,
+      required String password,
+      required BuildContext context,  // Pass the context from the widget calling this method 
+      
+    }) async {
+    try {
+      final UserCredential authResult = await _auth
+          .createUserWithEmailAndPassword(email: email, password: password);
+      final User? user = authResult.user;
+      assert(!user!.isAnonymous);
+      assert(await user!.getIdToken() != null);
+      return user;
+    } catch (e) {
+      print(e);
+      return null;
+    }
+  }
+
   // Sign out
 
   Future<void> signOut() async {

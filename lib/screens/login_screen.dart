@@ -115,7 +115,9 @@ class _LoginScreenState extends State<LoginScreen>{
           Container(
             margin: const EdgeInsets.fromLTRB(30,0,30,0),
             child: CustomButton(
-              onPressed: (){},
+              onPressed: () {
+                Navigator.pushNamed(context, '/signup-email-password');
+              },
               text: 'Create Account',
               color: const Color.fromARGB(255, 26, 103, 218),
               fontColor: Colors.white,
