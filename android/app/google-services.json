@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "400586110924",
+    "project_id": "newsflow-8a8c4",
+    "storage_bucket": "newsflow-8a8c4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:400586110924:android:62b6f28bcd16f595818f69",
+        "android_client_info": {
+          "package_name": "com.example.newsflow"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "400586110924-944avatt2h5khhjm6ttnhudbr7ii0an8.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.newsflow",
+            "certificate_hash": "1d808e043ceb76db102d964dd6cb541335bef582"
+          }
+        },
+        {
+          "client_id": "400586110924-lppgebqav68eu8b4biuv4bnj62fmvnio.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCEKHc2Qm7IQm8uSiMGRaIMkVUlIhw6Kj0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "400586110924-1idolj1p9rgiacf64v3uhu4rc9fmu5ae.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "400586110924-gb8lfmo6cb1sqamg4o1u10f9jj8qg2ir.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.newsflow"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
