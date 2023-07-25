@@ -30,6 +30,7 @@ class MyApp extends StatelessWidget {
       ],
       child: MaterialApp(
         title: 'NewsFlow',
+        debugShowCheckedModeBanner: false,
         theme: ThemeData(
           useMaterial3: true,
           scaffoldBackgroundColor: Colors.black,
