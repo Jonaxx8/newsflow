@@ -52,7 +52,7 @@ class _SignInScreenState extends State<SignInScreen> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           const Text(
-            "Sign In",
+            "Log In",
             style: TextStyle(
               fontSize: 30,
               color: Colors.white,
@@ -89,10 +89,11 @@ class _SignInScreenState extends State<SignInScreen> {
               ),
             ),
             child: const Text(
-              'Sign Up',
+              'Sign In',
               style: TextStyle(
                 fontSize: 16,
                 fontWeight: FontWeight.w600,
+                color: Colors.white,
               ),
             ),
           ),

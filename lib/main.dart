@@ -30,6 +30,11 @@ class MyApp extends StatelessWidget {
       ],
       child: MaterialApp(
         title: 'NewsFlow',
+        theme: ThemeData(
+          useMaterial3: true,
+          scaffoldBackgroundColor: Colors.black,
+          primarySwatch: Colors.blue,
+        ),
         home: const LoginScreen(),
         routes: {
           SignUpScreen.routeName: (context) => const SignUpScreen(),
