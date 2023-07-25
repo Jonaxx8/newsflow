@@ -57,7 +57,7 @@ class _LoginScreenState extends State<LoginScreen>{
                   Navigator.pushReplacement(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => HomeScreen(), // Replace NextScreen with your desired screen.
+                      builder: (context) => const HomeScreen(), // Replace NextScreen with your desired screen.
                     ),
                   );
                 }
@@ -71,7 +71,9 @@ class _LoginScreenState extends State<LoginScreen>{
           Container(
             margin: const EdgeInsets.fromLTRB(30,10,30,0),
             child: CustomButton(
-              onPressed: (){},
+              onPressed: (){
+                Navigator.pushNamed(context, '/signin-email-password');
+              },
               text: 'Login up with Email',
               imgPath: 'assets/images/email.png',
               color: Colors.white,

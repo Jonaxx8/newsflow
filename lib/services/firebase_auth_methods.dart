@@ -29,7 +29,10 @@ class FirebaseAuthMethods {
       assert(user!.uid == currentUser!.uid);
       return user;
     } catch (e) {
-      print(e);
+      showSnackBar(
+        context: context,
+        content: 'Something went wrong. Please try again later.',
+      );
       return null;
     }
   }
@@ -40,7 +43,7 @@ class FirebaseAuthMethods {
       required String email,
       required String password,
       required BuildContext context,  // Pass the context from the widget calling this method 
-      
+
     }) async {
     try {
       final UserCredential authResult = await _auth
@@ -50,19 +53,59 @@ class FirebaseAuthMethods {
       assert(await user!.getIdToken() != null);
       return user;
     } catch (e) {
-      print(e);
+      showSnackBar(
+        context: context,
+        content: 'Something went wrong. Please try again later.',
+      );
+      return null;
+    }
+  }
+
+  // Sign in with email and password
+
+  Future<User?> signInWithEmailAndPassword({
+      required String email,
+      required String password,
+      required BuildContext context,  // Pass the context from the widget calling this method 
+
+    }) async {
+    try {
+      final UserCredential authResult = await _auth
+          .signInWithEmailAndPassword(email: email, password: password);
+      final User? user = authResult.user;
+      assert(!user!.isAnonymous);
+      assert(await user!.getIdToken() != null);
+      return user;
+    } catch (e) {
+      showSnackBar(
+        context: context,
+        content: 'Something went wrong. Please try again later.',
+      );
       return null;
     }
   }
 
   // Sign out
 
-  Future<void> signOut() async {
+  Future<void> signOut(context) async {
     try {
       await _googleSignIn.signOut();
       await _auth.signOut();
     } catch (e) {
-      print(e);
+      showSnackBar(
+        context: context,
+        content: 'Something went wrong. Please try again later.',
+      );
     }
+  }
+  
+
+  // Show SnackBar
+  void showSnackBar({required BuildContext context, required String content}) {
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text(content),
+      ),
+    );
   }
 }

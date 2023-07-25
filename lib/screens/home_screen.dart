@@ -5,11 +5,14 @@ import 'package:provider/provider.dart';
 import 'package:newsflow/screens/login_screen.dart';
 
 class HomeScreen extends StatelessWidget {
+  const HomeScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Home Screen'),
+        automaticallyImplyLeading: false,
       ),
       body: const Center(
         child: Text(
@@ -29,17 +32,15 @@ class HomeScreen extends StatelessWidget {
 
   // Logout function
   void _logout(BuildContext context) {
-    // Perform logout action using FirebaseAuthMethods or any other provider you have set up
-    // For example, using FirebaseAuthMethods:
     final FirebaseAuthMethods authMethods = Provider.of<FirebaseAuthMethods>(context, listen: false);
-    authMethods.signOut(); // Replace this with your actual sign-out method
+    authMethods.signOut(context); // Replace this with your actual sign-out method
 
-    // After logout, navigate back to the LoginScreen (assuming LoginScreen is the previous route)
-    Navigator.pushReplacement(
+    Navigator.pushAndRemoveUntil(
     context,
     MaterialPageRoute(
-      builder: (context) => LoginScreen(), // Replace LoginScreen with your actual LoginScreen widget
+      builder: (context) => const LoginScreen(), 
     ),
+    (route) => false,
     );
   }
 }
